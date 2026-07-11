@@ -121,9 +121,9 @@ function initRose() {
   /* lighting pitched like an old studio photograph:
      broad diffuse fill, one gentle frontal key — low contrast,
      shadows that grey out instead of going black */
-  scene.add(new THREE.AmbientLight(0x9a988c, 2.1));
-  scene.add(new THREE.HemisphereLight(0xfffbe8, 0x55544a, 0.9));
-  const key = new THREE.DirectionalLight(0xfff8e6, 1.15);
+  scene.add(new THREE.AmbientLight(0x9a988c, 1.7));
+  scene.add(new THREE.HemisphereLight(0xfffbe8, 0x55544a, 0.75));
+  const key = new THREE.DirectionalLight(0xfff8e6, 1.4);
   key.position.set(2, 2.5, 3.2);
   scene.add(key);
   const rim = new THREE.DirectionalLight(0xd8d8cc, 0.45);

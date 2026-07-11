@@ -79,9 +79,6 @@ a { color: inherit; }
 }
 .topbar a { text-decoration: none; }
 .topbar a:hover { color: var(--rose-deep); }
-/* while floating over the dark photographic hero */
-.topbar--light { color: #efeadb; mix-blend-mode: normal; }
-.topbar--light a:hover { color: #ffffff; }
 .topbar .bar-center { display: flex; gap: clamp(1rem, 4vw, 2.6rem); }
 @media (max-width: 640px) {
   .topbar { font-size: 0.85rem; }
@@ -89,8 +86,8 @@ a { color: inherit; }
 }
 
 /* ============================================================
-   HERO — the ethereal rose, like a page from an old photobook:
-   a white bloom glowing out of grainy grey-green shadow
+   HERO — the antique rose printed on warm paper:
+   a monochrome bloom sitting in the grain of the page itself
    ============================================================ */
 .hero {
   min-height: 100svh;
@@ -100,28 +97,17 @@ a { color: inherit; }
   justify-content: center;
   position: relative;
   padding: 5rem 1rem 3rem;
-  background:
-    radial-gradient(ellipse 75% 58% at 50% 40%, #7c7d6f 0%, #666759 55%, #55564b 100%);
-  color: #efeadb;
   overflow: hidden;
 }
-/* heavier photographic grain + mottling, only on the hero */
+/* extra sepia grain on the hero, like an old print */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.09 0'/></filter><rect width='240' height='240' filter='url(%23g)'/></svg>");
-  mix-blend-mode: soft-light;
-  z-index: 3; /* film grain lies over the rose itself, like emulsion */
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 130% 100% at 50% 45%, transparent 55%, rgba(25, 26, 20, 0.45) 100%);
-  z-index: 1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/></filter><rect width='240' height='240' filter='url(%23g)'/></svg>");
+  mix-blend-mode: multiply;
+  z-index: 3; /* the grain lies over the rose itself, like emulsion */
 }
 .hero > * { position: relative; z-index: 2; }
 
@@ -130,8 +116,8 @@ a { color: inherit; }
   font-weight: 400;
   font-size: clamp(4.2rem, 13vw, 9rem);
   line-height: 0.9;
-  color: #f3eeda;
-  text-shadow: 0 0 34px rgba(20, 20, 15, 0.35);
+  color: var(--ink);
+  mix-blend-mode: multiply;
   transform: rotate(-3deg);
   text-align: center;
   z-index: 6;
@@ -143,7 +129,7 @@ a { color: inherit; }
   font-style: italic;
   letter-spacing: 0.18em;
   font-size: clamp(0.85rem, 2.4vw, 1.05rem);
-  color: #d8d3c1;
+  color: var(--ink-soft);
   text-transform: lowercase;
   animation: inkIn 2.2s 0.5s var(--ease-soft) both;
   text-align: center;
@@ -206,16 +192,16 @@ a { color: inherit; }
   height: 7%;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(15, 16, 12, 0.4), transparent 70%);
+  background: radial-gradient(ellipse, rgba(85, 70, 45, 0.28), transparent 70%);
   filter: blur(4px);
 }
-/* a soft halo of light behind the bloom, like the reference photo */
+/* a faint sepia wash behind the bloom, like ink soaked into the page */
 .flower-stage::before {
   content: "";
   position: absolute;
   inset: -14%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(240, 236, 220, 0.16), transparent 62%);
+  background: radial-gradient(circle, rgba(110, 95, 60, 0.12), transparent 62%);
   pointer-events: none;
 }
 @keyframes breathe {
@@ -228,7 +214,7 @@ a { color: inherit; }
   position: absolute;
   width: 16px; height: 22px;
   border-radius: 60% 60% 50% 50% / 80% 80% 30% 30%;
-  background: linear-gradient(160deg, #e9e5d4, #b3ae9c);
+  background: linear-gradient(160deg, #d8d1bc, #a49d88);
   opacity: 0;
   animation: drift 14s linear infinite;
   pointer-events: none;
@@ -248,7 +234,7 @@ a { color: inherit; }
   font-style: italic;
   font-size: 0.95rem;
   letter-spacing: 0.14em;
-  color: #c9c4b2;
+  color: var(--ink-soft);
   text-decoration: none;
   animation: cueFloat 3.2s ease-in-out infinite;
 }

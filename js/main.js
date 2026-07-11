@@ -76,22 +76,6 @@ function buildFlower() {
 }
 
 /* ------------------------------------------------------------
-   1b. Topbar goes light while floating over the dark hero
-   ------------------------------------------------------------ */
-function topbarTheme() {
-  const bar = document.querySelector(".topbar");
-  const hero = document.querySelector(".hero");
-  if (!bar) return;
-  const update = () => {
-    const overHero = hero && hero.offsetHeight > 0 && window.scrollY < hero.offsetHeight - 70;
-    bar.classList.toggle("topbar--light", !!overHero);
-  };
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("hashchange", () => setTimeout(update, 0));
-}
-
-/* ------------------------------------------------------------
    2. Petals drifting through the hero air
    ------------------------------------------------------------ */
 function scatterPetals() {
@@ -226,7 +210,6 @@ setTimeout(() => {
     buildFlower();
   }
 }, 2500);
-topbarTheme();
 scatterPetals();
 renderGallery();
 renderPiece();

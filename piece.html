@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Rosa Studio · piece</title>
+  <meta name="description" content="An original painting from Casa Rosa Studio — a world where a home can feel and hold the elements of nature.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="index.html">casarosa.studio</a>
+    <nav class="bar-center">
+      <a href="index.html#vision">the vision</a>
+      <a href="index.html#collection">the collection</a>
+      <a href="index.html#artist">the artist</a>
+    </nav>
+    <a class="bar-right" data-link-instagram href="#" target="_blank" rel="noopener">@casarosa.studio</a>
+  </header>
+
+  <!-- Tiare-style piece layout: artwork left, story & details right -->
+  <main class="piece-page" id="piece-root">
+    <!-- rendered from js/pieces-data.js based on the URL hash -->
+  </main>
+
+  <section class="more-pieces">
+    <h2>more from the garden</h2>
+    <div class="gallery" id="more-gallery"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-spread" aria-hidden="true">
+      <span>find your</span>
+      <span class="mid">perfect</span>
+      <span>piece</span>
+    </div>
+    <nav class="footer-links">
+      <a data-link-etsy href="#" target="_blank" rel="noopener">etsy</a>
+      <a data-link-instagram href="#" target="_blank" rel="noopener">instagram</a>
+      <a data-link-email href="#">write to the studio</a>
+    </nav>
+    <p class="footer-fine">© <span id="year"></span> casa rosa studio · painted &amp; kept by hand</p>
+  </footer>
+
+  <script src="js/pieces-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

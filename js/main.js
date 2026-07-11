@@ -5,8 +5,8 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ------------------------------------------------------------
-   1. THE BLOOM — a 3-D rose built from layered petals.
-   It sways on its own and leans gently toward the cursor.
+   1. THE BLOOM — CSS fallback rose, used only when WebGL is
+   unavailable (js/rose3d.js renders the real turning rose).
    ------------------------------------------------------------ */
 function buildFlower() {
   const flower = document.getElementById("flower");
@@ -217,7 +217,15 @@ function wireGlobalLinks() {
 }
 
 /* ------------------------------------------------------------ */
-buildFlower();
+window.buildCSSFlower = buildFlower; // called by rose3d.js if WebGL fails
+/* safety net: if the 3-D module never arrives (old browser, blocked
+   script), grow the CSS rose instead so the hero is never empty */
+setTimeout(() => {
+  const stage = document.querySelector(".flower-stage");
+  if (stage && !stage.querySelector("canvas") && !stage.querySelector(".petal")) {
+    buildFlower();
+  }
+}, 2500);
 topbarTheme();
 scatterPetals();
 renderGallery();

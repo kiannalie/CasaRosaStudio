@@ -34,29 +34,53 @@ function smoothstep(a, b, x) {
   return t * t * (3 - 2 * t);
 }
 
-function petalGeometry(curl, cup, ruffle) {
-  const NU = 26, NV = 16;
+function petalGeometry(curl, cup, ruffle, shade, mess) {
+  const NU = 30, NV = 18;
   const L = 1.0, W = 0.92;
   const positions = [];
+  const colors = [];
   const indices = [];
+
+  /* every petal gets its own imperfections — no two alike.
+     `mess` grows toward the outer rings: the bud stays neat,
+     the open petals loosen up */
+  const p1 = Math.random() * Math.PI * 2;
+  const p2 = Math.random() * Math.PI * 2;
+  const p3 = Math.random() * Math.PI * 2;
+  const asym = (Math.random() - 0.5) * 0.16 * mess;  // leans a little to one side
+  const twist = (Math.random() - 0.5) * 0.5 * mess;  // slow twist along its length
+  const droop = Math.random() * 0.24 * mess;         // tip gives in to gravity
+  const bend = (Math.random() - 0.5) * 0.12 * mess;  // uneven bow along the spine
 
   for (let iu = 0; iu <= NU; iu++) {
     const u = iu / NU;
-    /* rose petal outline: narrow base, broad shoulders, rounded tip */
+    /* rose petal outline: narrow base, broad shoulders, rounded tip —
+       with a slow wobble so the edge is never a clean curve */
     let profile = Math.pow(Math.sin(Math.PI * u * 0.68), 0.8);
     profile *= 1 - 0.55 * smoothstep(0.84, 1, u);
+    profile *= 1 + (0.09 * Math.sin(u * 6.2 + p1) + 0.05 * Math.sin(u * 11 + p2)) * mess;
     const width = W * profile;
     for (let iv = 0; iv <= NV; iv++) {
       const v = iv / NV;
       const e = (v - 0.5) * 2; // -1 at one edge, +1 at the other
-      const x = (v - 0.5) * width;
+      let x = (v - 0.5) * width + asym * u * u;
       let y = u * L;
       y -= 0.09 * e * e * smoothstep(0.75, 1, u);                // arc the tip
+      y -= droop * Math.pow(u, 2.5);                             // gravity
       let z = 0;
       z += cup * e * e * (0.1 + 0.34 * u);                       // soft cupping
       z += curl * Math.pow(u, 2.1);                              // tip curls back / in
-      z += ruffle * Math.sin(v * Math.PI * 3) * u * u * 0.045;   // faint ruffle
-      positions.push(x, y, z);
+      z += bend * Math.sin(u * Math.PI);                         // uneven spine
+      z += ruffle * Math.sin(v * Math.PI * 3 + p3) * u * u * 0.05 * mess; // wavering edge
+      z += 0.02 * Math.sin(u * 9 + p2) * Math.sin(v * 7 + p1) * mess;    // gentle ripple
+      /* slow twist along the length */
+      const tw = twist * u;
+      const xt = x * Math.cos(tw) - z * Math.sin(tw);
+      const zt = x * Math.sin(tw) + z * Math.cos(tw);
+      positions.push(xt, y, zt);
+      /* soft depth: petals darken toward their base, like a photograph */
+      const l = 0.8 + 0.28 * Math.pow(u, 0.8);
+      colors.push(shade.r * l, shade.g * l, shade.b * l);
     }
   }
   for (let iu = 0; iu < NU; iu++) {
@@ -69,6 +93,7 @@ function petalGeometry(curl, cup, ruffle) {
 
   const geo = new THREE.BufferGeometry();
   geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
   geo.setIndex(indices);
   geo.computeVertexNormals();
   return geo;
@@ -85,6 +110,7 @@ function initRose() {
   canvas.style.inset = "0";
   canvas.style.width = "100%";
   canvas.style.height = "100%";
+  canvas.style.filter = "blur(0.6px)"; // the softness of an old lens
   stage.appendChild(canvas);
 
   const scene = new THREE.Scene();
@@ -111,7 +137,7 @@ function initRose() {
   scene.add(pivot);
 
   /* petals in a phyllotaxis spiral, bud → open outer ring */
-  const COUNT = 30;
+  const COUNT = 34;
   const GOLDEN = Math.PI * (3 - Math.sqrt(5)); // ≈137.5°
   const dark = new THREE.Color(0x7e796b);
   const light = new THREE.Color(0xf1eee0);
@@ -123,24 +149,27 @@ function initRose() {
     const scale = 0.48 + 0.6 * Math.pow(t, 0.75);
     const curl = -0.22 + 0.72 * Math.pow(t, 1.35) + jit(); // inner wraps in, outer rolls back
     const cup = 0.42 - 0.22 * t;
-    const shade = dark.clone().lerp(light, 0.26 + 0.74 * Math.pow(t, 0.8));
+    const shade = dark.clone().lerp(light, 0.4 + 0.6 * Math.pow(t, 0.8));
 
     const mat = new THREE.MeshStandardMaterial({
-      color: shade,
+      color: 0xffffff,
+      vertexColors: true,
       roughness: 0.78,
       metalness: 0,
       side: THREE.DoubleSide,
     });
 
-    const petal = new THREE.Mesh(petalGeometry(curl, cup, 0.4 + t), mat);
+    const mess = 0.25 + 0.75 * t; // the bud is neat; the open petals loosen
+    const petal = new THREE.Mesh(petalGeometry(curl, cup, 0.4 + t, shade, mess), mat);
     petal.rotation.x = tilt;
-    petal.scale.setScalar(scale * 1.35);
+    petal.rotation.y = (Math.random() - 0.5) * 0.16 * mess;
+    petal.scale.setScalar(scale * 1.35 * (0.95 + Math.random() * 0.1));
     /* petals attach around a small receptacle, outer rings lower */
     petal.position.y = 0.12 - 0.4 * t;
     petal.position.z = 0.04 + 0.18 * t;
 
     const holder = new THREE.Group();
-    holder.rotation.y = i * GOLDEN;
+    holder.rotation.y = i * GOLDEN + (Math.random() - 0.5) * 0.2;
     holder.add(petal);
     rose.add(holder);
   }

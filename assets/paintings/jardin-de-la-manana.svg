@@ -2,23 +2,23 @@
   <defs>
     <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0"/><feComposite operator="over" in2="SourceGraphic"/></filter>
     <radialGradient id="j-bloom" cx="50%" cy="45%" r="60%">
-      <stop offset="0%" stop-color="#e9b7bd"/><stop offset="60%" stop-color="#dd9aa4"/><stop offset="100%" stop-color="#c97f8d"/>
+      <stop offset="0%" stop-color="#bccbd5"/><stop offset="60%" stop-color="#a3b9c5"/><stop offset="100%" stop-color="#8ca4b2"/>
     </radialGradient>
   </defs>
-  <rect width="800" height="1000" fill="#f3ecdc"/>
+  <rect width="800" height="1000" fill="#f0e2d3"/>
   <g filter="url(#paper)">
-    <ellipse cx="410" cy="700" rx="240" ry="60" fill="#d8cfae" opacity="0.5"/>
-    <path d="M400 720 C 390 560 410 480 400 380" stroke="#7d8b62" stroke-width="10" fill="none" stroke-linecap="round"/>
-    <path d="M400 560 C 320 540 280 480 270 430 C 350 440 390 500 400 545 Z" fill="#93a271" opacity="0.85"/>
-    <path d="M402 620 C 480 600 520 545 532 495 C 452 505 412 560 402 605 Z" fill="#86955f" opacity="0.85"/>
+    <ellipse cx="410" cy="700" rx="240" ry="60" fill="#cfc19c" opacity="0.5"/>
+    <path d="M400 720 C 390 560 410 480 400 380" stroke="#5f5c31" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M400 560 C 320 540 280 480 270 430 C 350 440 390 500 400 545 Z" fill="#6d6a3b" opacity="0.85"/>
+    <path d="M402 620 C 480 600 520 545 532 495 C 452 505 412 560 402 605 Z" fill="#615e2e" opacity="0.85"/>
     <circle cx="400" cy="330" r="118" fill="url(#j-bloom)"/>
-    <circle cx="400" cy="330" r="80" fill="#d28995" opacity="0.9"/>
-    <circle cx="400" cy="330" r="46" fill="#b96a79"/>
-    <circle cx="400" cy="330" r="16" fill="#f2d9b0"/>
-    <circle cx="205" cy="480" r="52" fill="#e6b6bc" opacity="0.85"/>
-    <circle cx="205" cy="480" r="20" fill="#c67f8c"/>
-    <circle cx="610" cy="415" r="40" fill="#e6b6bc" opacity="0.75"/>
-    <circle cx="610" cy="415" r="14" fill="#c67f8c"/>
-    <path d="M180 760 C 260 730 540 730 640 762" stroke="#a9a07a" stroke-width="6" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <circle cx="400" cy="330" r="80" fill="#96abb7" opacity="0.9"/>
+    <circle cx="400" cy="330" r="46" fill="#621217"/>
+    <circle cx="400" cy="330" r="16" fill="#e3cbae"/>
+    <circle cx="205" cy="480" r="52" fill="#bccbd5" opacity="0.85"/>
+    <circle cx="205" cy="480" r="20" fill="#7f2a30"/>
+    <circle cx="610" cy="415" r="40" fill="#bccbd5" opacity="0.75"/>
+    <circle cx="610" cy="415" r="14" fill="#7f2a30"/>
+    <path d="M180 760 C 260 730 540 730 640 762" stroke="#8d8656" stroke-width="6" fill="none" opacity="0.6" stroke-linecap="round"/>
   </g>
 </svg>

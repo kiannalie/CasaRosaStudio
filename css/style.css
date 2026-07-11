@@ -4,19 +4,19 @@
    ============================================================ */
 
 :root {
-  --paper: #efe7d3;
-  --paper-warm: #e9dfc6;
-  --paper-shadow: #ddd0b1;
-  --ink: #33302a;
-  --ink-soft: #5a544a;
-  --rose: #c67f8c;
-  --rose-soft: #dfa4ae;
-  --rose-deep: #a55f6e;
-  --leaf: #7d8b62;
-  --leaf-deep: #5b6847;
+  /* Casa Rosa palette — mostly green, on warm paper */
+  --paper: #ead7c7;
+  --paper-warm: #e3cbb6;
+  --paper-shadow: #d6bda5;
+  --ink: #302a07;       /* deep olive — the dominant green */
+  --ink-soft: #5b5433;
+  --olive: #6a6534;
+  --olive-deep: #46400f;
+  --burgundy: #621217;
+  --blue: #aec3cd;      /* dusty blue, used sparingly */
   --gold: #c9a86a;
 
-  --font-serif: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-body: "Montserrat", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   --font-script: "Italianno", "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
 
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -29,9 +29,10 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--paper);
   color: var(--ink);
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  line-height: 1.65;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -56,7 +57,7 @@ body::after {
     radial-gradient(ellipse 120% 90% at 50% 40%, transparent 60%, rgba(120, 100, 60, 0.10) 100%);
 }
 
-::selection { background: var(--rose-soft); color: var(--ink); }
+::selection { background: var(--blue); color: var(--ink); }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; }
@@ -72,16 +73,16 @@ a { color: inherit; }
   justify-content: space-between;
   align-items: baseline;
   padding: 1.1rem clamp(1.2rem, 4vw, 3rem);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
   mix-blend-mode: multiply;
   transition: color 0.6s var(--ease-soft);
 }
 .topbar a { text-decoration: none; }
-.topbar a:hover { color: var(--rose-deep); }
+.topbar a:hover { color: var(--burgundy); }
 .topbar .bar-center { display: flex; gap: clamp(1rem, 4vw, 2.6rem); }
 @media (max-width: 640px) {
-  .topbar { font-size: 0.85rem; }
+  .topbar { font-size: 0.72rem; }
   .topbar .bar-right { display: none; }
 }
 
@@ -127,8 +128,8 @@ a { color: inherit; }
 .hero-sub {
   z-index: 5;
   font-style: italic;
-  letter-spacing: 0.18em;
-  font-size: clamp(0.85rem, 2.4vw, 1.05rem);
+  letter-spacing: 0.22em;
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
   color: var(--ink-soft);
   text-transform: lowercase;
   animation: inkIn 2.2s 0.5s var(--ease-soft) both;
@@ -232,7 +233,7 @@ a { color: inherit; }
   left: 50%;
   transform: translateX(-50%);
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
   text-decoration: none;
@@ -255,9 +256,9 @@ a { color: inherit; }
 .eyebrow {
   text-transform: lowercase;
   font-style: italic;
-  letter-spacing: 0.24em;
-  font-size: 0.9rem;
-  color: var(--rose-deep);
+  letter-spacing: 0.32em;
+  font-size: 0.7rem;
+  color: var(--burgundy);
   text-align: center;
   margin-bottom: 0.8rem;
 }
@@ -277,7 +278,7 @@ a { color: inherit; }
   display: block;
   width: min(220px, 50vw);
   margin: 0.4rem auto 0;
-  color: var(--rose);
+  color: var(--olive);
 }
 
 /* words that reveal like ink soaking in */
@@ -302,7 +303,7 @@ a { color: inherit; }
   text-align: center;
 }
 .vision-inner p {
-  font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
   color: var(--ink-soft);
   margin-bottom: 1.6rem;
 }
@@ -316,7 +317,7 @@ a { color: inherit; }
   margin: 3rem auto 3.4rem;
 }
 .bracket-motif .bracket {
-  font-family: var(--font-serif);
+  font-family: var(--font-body);
   font-size: clamp(5rem, 14vw, 8.5rem);
   font-weight: 300;
   line-height: 0.8;
@@ -378,26 +379,27 @@ a { color: inherit; }
   text-align: center;
 }
 .piece-card .card-title {
-  letter-spacing: 0.14em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-size: 0.98rem;
+  font-size: 0.78rem;
+  font-weight: 400;
 }
 .piece-card .card-script {
   font-family: var(--font-script);
   font-size: 1.7rem;
-  color: var(--rose-deep);
+  color: var(--burgundy);
   line-height: 1;
   margin: 0.25rem 0 0.55rem;
 }
 .piece-card .card-cta {
   font-style: italic;
-  font-size: 0.92rem;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
   color: var(--ink-soft);
   border-bottom: 1px solid rgba(51, 48, 42, 0.4);
   padding-bottom: 2px;
 }
-.piece-card:hover .card-cta { color: var(--rose-deep); border-color: var(--rose-deep); }
+.piece-card:hover .card-cta { color: var(--burgundy); border-color: var(--burgundy); }
 
 /* ============================================================
    ARTIST NOTE
@@ -407,7 +409,7 @@ a { color: inherit; }
   margin: 0 auto;
   text-align: center;
   color: var(--ink-soft);
-  font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
 }
 .artist-note .signoff {
   font-family: var(--font-script);
@@ -424,9 +426,10 @@ a { color: inherit; }
    ============================================================ */
 .btn-drawn {
   display: inline-block;
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--ink);
@@ -441,8 +444,8 @@ a { color: inherit; }
   color: var(--paper);
   transform: rotate(-1deg);
 }
-.btn-drawn.btn-rose { border-color: var(--rose-deep); color: var(--rose-deep); }
-.btn-drawn.btn-rose:hover { background: var(--rose-deep); color: var(--paper); }
+.btn-drawn.btn-rose { border-color: var(--burgundy); color: var(--burgundy); }
+.btn-drawn.btn-rose:hover { background: var(--burgundy); color: var(--paper); }
 
 /* ============================================================
    FOOTER — spread like a printed page
@@ -454,25 +457,25 @@ a { color: inherit; }
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  font-size: clamp(1rem, 2.6vw, 1.25rem);
-  letter-spacing: 0.06em;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  letter-spacing: 0.14em;
   margin-bottom: 3rem;
 }
-.footer-spread .mid { font-family: var(--font-script); font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--rose-deep); transform: rotate(-2deg); }
+.footer-spread .mid { font-family: var(--font-script); font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--burgundy); transform: rotate(-2deg); }
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 2.2rem;
   font-style: italic;
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
 }
-.footer-links a { text-decoration: none; border-bottom: 1px solid rgba(51,48,42,0.35); padding-bottom: 1px; }
-.footer-links a:hover { color: var(--rose-deep); border-color: var(--rose-deep); }
+.footer-links a { text-decoration: none; border-bottom: 1px solid rgba(48,42,7,0.35); padding-bottom: 1px; }
+.footer-links a:hover { color: var(--burgundy); border-color: var(--burgundy); }
 .footer-fine {
   text-align: center;
   margin-top: 2.4rem;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   color: var(--ink-soft);
   letter-spacing: 0.08em;
   font-style: italic;
@@ -513,7 +516,7 @@ a { color: inherit; }
 .piece-visual .caption {
   text-align: center;
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: var(--ink-soft);
   margin-top: 1rem;
   letter-spacing: 0.08em;
@@ -521,49 +524,50 @@ a { color: inherit; }
 
 .piece-info .breadcrumb {
   font-style: italic;
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
   color: var(--ink-soft);
   margin-bottom: 1.6rem;
 }
-.piece-info .breadcrumb a { text-decoration: none; border-bottom: 1px solid rgba(51,48,42,0.3); }
-.piece-info .breadcrumb a:hover { color: var(--rose-deep); }
+.piece-info .breadcrumb a { text-decoration: none; border-bottom: 1px solid rgba(48,42,7,0.3); }
+.piece-info .breadcrumb a:hover { color: var(--burgundy); }
 
 .piece-info h1 {
-  font-weight: 500;
-  font-size: clamp(2.1rem, 5vw, 2.9rem);
-  letter-spacing: 0.06em;
-  line-height: 1.1;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.25;
 }
 .piece-info .piece-script {
   font-family: var(--font-script);
   font-size: 2.4rem;
-  color: var(--rose-deep);
+  color: var(--burgundy);
   line-height: 1;
   margin: 0.4rem 0 1.4rem;
   transform: rotate(-2deg);
   display: inline-block;
 }
 .piece-info .piece-price {
-  font-size: 1.5rem;
-  letter-spacing: 0.08em;
+  font-size: 1.1rem;
+  letter-spacing: 0.14em;
   margin-bottom: 0.4rem;
 }
 .piece-info .piece-meta-line {
   font-style: italic;
   color: var(--ink-soft);
-  font-size: 1rem;
+  font-size: 0.82rem;
   margin-bottom: 1.8rem;
 }
 .piece-info .piece-intro {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-style: italic;
   color: var(--ink);
-  border-left: 2px solid var(--rose-soft);
+  border-left: 2px solid var(--blue);
   padding-left: 1.1rem;
   margin-bottom: 1.6rem;
 }
-.piece-info .piece-story { color: var(--ink-soft); margin-bottom: 2.2rem; }
+.piece-info .piece-story { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 2.2rem; }
 
 .detail-list { list-style: none; margin-bottom: 2.4rem; }
 .detail-list li {
@@ -571,8 +575,8 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 1.5rem;
   padding: 0.65rem 0;
-  border-bottom: 1px dashed rgba(51, 48, 42, 0.25);
-  font-size: 1rem;
+  border-bottom: 1px dashed rgba(48, 42, 7, 0.3);
+  font-size: 0.82rem;
 }
 .detail-list li span:first-child {
   font-style: italic;
@@ -584,13 +588,13 @@ a { color: inherit; }
 .piece-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1rem; }
 .ask-link {
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   color: var(--ink-soft);
   text-decoration: none;
-  border-bottom: 1px solid rgba(51,48,42,0.35);
+  border-bottom: 1px solid rgba(48,42,7,0.35);
 }
-.ask-link:hover { color: var(--rose-deep); border-color: var(--rose-deep); }
+.ask-link:hover { color: var(--burgundy); border-color: var(--burgundy); }
 
 /* more pieces strip */
 .more-pieces { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.2rem, 5vw, 3rem) 5rem; }

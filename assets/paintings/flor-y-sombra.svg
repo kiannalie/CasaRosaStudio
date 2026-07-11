@@ -2,22 +2,22 @@
   <defs>
     <filter id="paper3"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/><feComposite operator="over" in2="SourceGraphic"/></filter>
     <radialGradient id="glow" cx="50%" cy="40%" r="65%">
-      <stop offset="0%" stop-color="#6d7361"/><stop offset="100%" stop-color="#4a5044"/>
+      <stop offset="0%" stop-color="#3d3813"/><stop offset="100%" stop-color="#302a07"/>
     </radialGradient>
   </defs>
   <rect width="800" height="1000" fill="url(#glow)"/>
   <g filter="url(#paper3)">
-    <path d="M400 860 C 385 640 415 540 400 430" stroke="#39402f" stroke-width="12" fill="none" stroke-linecap="round"/>
-    <path d="M398 640 C 300 615 255 545 245 485 C 340 500 385 570 398 622 Z" fill="#39402f"/>
+    <path d="M400 860 C 385 640 415 540 400 430" stroke="#241f04" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M398 640 C 300 615 255 545 245 485 C 340 500 385 570 398 622 Z" fill="#241f04"/>
     <g transform="translate(400 360)">
-      <path d="M0 -150 C 90 -120 120 -30 80 40 C 40 100 -40 100 -80 40 C -120 -30 -90 -120 0 -150 Z" fill="#efe3cf"/>
-      <path d="M0 -110 C 60 -88 80 -25 52 25 C 26 68 -26 68 -52 25 C -80 -25 -60 -88 0 -110 Z" fill="#e3cfb4" opacity="0.9"/>
-      <path d="M0 -70 C 34 -55 46 -15 30 15 C 15 42 -15 42 -30 15 C -46 -15 -34 -55 0 -70 Z" fill="#d7b992"/>
-      <circle cy="-18" r="14" fill="#b98d63"/>
+      <path d="M0 -150 C 90 -120 120 -30 80 40 C 40 100 -40 100 -80 40 C -120 -30 -90 -120 0 -150 Z" fill="#ead7c7"/>
+      <path d="M0 -110 C 60 -88 80 -25 52 25 C 26 68 -26 68 -52 25 C -80 -25 -60 -88 0 -110 Z" fill="#dcc4a8" opacity="0.9"/>
+      <path d="M0 -70 C 34 -55 46 -15 30 15 C 15 42 -15 42 -30 15 C -46 -15 -34 -55 0 -70 Z" fill="#c9a97f"/>
+      <circle cy="-18" r="14" fill="#621217"/>
     </g>
-    <circle cx="190" cy="200" r="4" fill="#efe3cf" opacity="0.5"/>
-    <circle cx="620" cy="260" r="5" fill="#efe3cf" opacity="0.4"/>
-    <circle cx="560" cy="150" r="3" fill="#efe3cf" opacity="0.5"/>
-    <path d="M150 900 C 300 870 520 870 660 902" stroke="#39402f" stroke-width="8" fill="none" opacity="0.7" stroke-linecap="round"/>
+    <circle cx="190" cy="200" r="4" fill="#ead7c7" opacity="0.5"/>
+    <circle cx="620" cy="260" r="5" fill="#ead7c7" opacity="0.4"/>
+    <circle cx="560" cy="150" r="3" fill="#ead7c7" opacity="0.5"/>
+    <path d="M150 900 C 300 870 520 870 660 902" stroke="#241f04" stroke-width="8" fill="none" opacity="0.7" stroke-linecap="round"/>
   </g>
 </svg>

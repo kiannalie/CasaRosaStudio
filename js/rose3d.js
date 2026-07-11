@@ -139,8 +139,8 @@ function initRose() {
   /* petals in a phyllotaxis spiral, bud → open outer ring */
   const COUNT = 34;
   const GOLDEN = Math.PI * (3 - Math.sqrt(5)); // ≈137.5°
-  const dark = new THREE.Color(0x7e796b);
-  const light = new THREE.Color(0xf1eee0);
+  const dark = new THREE.Color(0x746a55);
+  const light = new THREE.Color(0xf4e9da);
 
   for (let i = 0; i < COUNT; i++) {
     const t = i / (COUNT - 1);

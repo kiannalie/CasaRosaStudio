@@ -12,17 +12,22 @@ function buildFlower() {
   const flower = document.getElementById("flower");
   if (!flower) return;
 
+  /* a rose seen almost from the front: wide open outer petals,
+     each ring smaller, darker and more curled toward the heart */
   const layers = [
-    { count: 9, length: 46, width: 26, tilt: -24, z: -26 },
-    { count: 7, length: 37, width: 23, tilt: -14, z: 4 },
-    { count: 5, length: 27, width: 19, tilt: -6, z: 30 },
+    { count: 9, length: 52, width: 26, tilt: 8, z: -22 },
+    { count: 8, length: 43, width: 23, tilt: 0, z: -10 },
+    { count: 6, length: 33, width: 19, tilt: -12, z: 2 },
+    { count: 5, length: 24, width: 15, tilt: -26, z: 12 },
+    { count: 3, length: 15, width: 11, tilt: -44, z: 20 },
   ];
 
   layers.forEach((layer, li) => {
     for (let i = 0; i < layer.count; i++) {
       const petal = document.createElement("div");
       petal.className = "petal";
-      const angle = (360 / layer.count) * i + li * 24; // offset each ring
+      const jitter = (Math.random() - 0.5) * 9;
+      const angle = (360 / layer.count) * i + li * 26 + jitter;
       petal.style.width = layer.width + "%";
       petal.style.height = layer.length + "%";
       petal.style.marginLeft = -(layer.width / 2) + "%";
@@ -30,13 +35,15 @@ function buildFlower() {
       petal.style.transform =
         "rotateZ(" + angle + "deg) rotateX(" + layer.tilt + "deg) translateZ(" + layer.z + "px)";
       petal.style.animationDelay = (i * 0.35 + li * 0.6) + "s";
+      /* the heart of the rose falls into shadow */
+      petal.style.filter = "brightness(" + (1.04 - li * 0.055 + Math.random() * 0.05) + ")";
       flower.appendChild(petal);
     }
   });
 
   const core = document.createElement("div");
   core.className = "flower-core";
-  core.style.transform = "translate(-50%, -50%) translateZ(52px)";
+  core.style.transform = "translate(-50%, -50%) translateZ(30px)";
   flower.appendChild(core);
 
   /* gentle life: idle sway + cursor lean */
@@ -66,6 +73,22 @@ function buildFlower() {
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
+}
+
+/* ------------------------------------------------------------
+   1b. Topbar goes light while floating over the dark hero
+   ------------------------------------------------------------ */
+function topbarTheme() {
+  const bar = document.querySelector(".topbar");
+  const hero = document.querySelector(".hero");
+  if (!bar) return;
+  const update = () => {
+    const overHero = hero && hero.offsetHeight > 0 && window.scrollY < hero.offsetHeight - 70;
+    bar.classList.toggle("topbar--light", !!overHero);
+  };
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("hashchange", () => setTimeout(update, 0));
 }
 
 /* ------------------------------------------------------------
@@ -195,6 +218,7 @@ function wireGlobalLinks() {
 
 /* ------------------------------------------------------------ */
 buildFlower();
+topbarTheme();
 scatterPetals();
 renderGallery();
 renderPiece();

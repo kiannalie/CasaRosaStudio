@@ -135,11 +135,6 @@ a { color: inherit; }
   z-index: 1;
   pointer-events: none;
 }
-@keyframes vineSway {
-  from { transform: rotate(0.4deg); }
-  to   { transform: rotate(-0.4deg); }
-}
-
 /* the monogram held in the open centre of the frame */
 .hero-monogram-wrap { margin: 0; line-height: 0; }
 .hero-monogram {

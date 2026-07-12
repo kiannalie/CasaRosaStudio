@@ -201,16 +201,7 @@ function wireGlobalLinks() {
 }
 
 /* ------------------------------------------------------------ */
-window.buildCSSFlower = buildFlower; // called by rose3d.js if WebGL fails
-/* safety net: if the 3-D module never arrives (old browser, blocked
-   script), grow the CSS rose instead so the hero is never empty */
-setTimeout(() => {
-  const stage = document.querySelector(".flower-stage");
-  if (stage && !stage.querySelector("canvas") && !stage.querySelector(".petal")) {
-    buildFlower();
-  }
-}, 2500);
-scatterPetals();
+window.buildCSSFlower = buildFlower; // kept for the retired rose hero
 renderGallery();
 renderPiece();
 wireGlobalLinks();

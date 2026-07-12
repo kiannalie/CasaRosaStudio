@@ -124,18 +124,29 @@ a { color: inherit; }
 }
 .hero > * { position: relative; z-index: 2; }
 
-.hero-title {
-  font-family: var(--font-script);
-  font-weight: 400;
-  font-size: clamp(4.2rem, 13vw, 9rem);
-  line-height: 0.9;
-  color: var(--ink);
+/* the vine grows around the edges, drawn in faded sepia-olive ink */
+.vine-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: #8a7c4e;
   mix-blend-mode: multiply;
-  transform: rotate(-3deg);
-  text-align: center;
-  z-index: 6;
-  margin-top: clamp(-170px, -26vw, -96px); /* script drawn across the bloom */
-  animation: inkIn 2.2s var(--ease-soft) both;
+  z-index: 1;
+  pointer-events: none;
+}
+@keyframes vineSway {
+  from { transform: rotate(0.4deg); }
+  to   { transform: rotate(-0.4deg); }
+}
+
+/* the monogram held in the open centre of the frame */
+.hero-monogram-wrap { margin: 0; line-height: 0; }
+.hero-monogram {
+  height: clamp(170px, 30vh, 300px);
+  width: auto;
+  mix-blend-mode: multiply;
+  animation: inkIn 2.6s 0.9s var(--ease-soft) both;
 }
 .hero-sub {
   z-index: 5;
@@ -144,9 +155,9 @@ a { color: inherit; }
   font-size: clamp(0.72rem, 2vw, 0.85rem);
   color: var(--ink-soft);
   text-transform: lowercase;
-  animation: inkIn 2.2s 0.5s var(--ease-soft) both;
+  animation: inkIn 2.2s 1.6s var(--ease-soft) both;
   text-align: center;
-  margin-top: 1.6rem;
+  margin-top: 2.2rem;
 }
 
 @keyframes inkIn {

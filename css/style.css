@@ -34,7 +34,7 @@
   --color-bg: var(--brand-white);         /* home + contact background */
   --color-bg-alt: var(--brand-blush);     /* works + about background */
   --color-text: var(--brand-olive);
-  --color-muted: color-mix(in srgb, var(--brand-olive) 65%, transparent); /* captions, "(required)" */
+  --color-muted: var(--brand-olive);       /* "(required)" labels */
   --color-field-bg: color-mix(in srgb, var(--brand-white) 55%, transparent); /* contact form boxes */
   --color-line: var(--brand-olive);       /* borders, underlines */
   --color-accent: var(--brand-burgundy);  /* hover on Send */

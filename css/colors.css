@@ -1,0 +1,12 @@
+/* =========================================================
+   CASA ROSA STUDIO — BRAND COLOURS
+   The one place the brand colours are defined.
+   Use them anywhere in the CSS as var(--brand-…).
+   ========================================================= */
+
+:root {
+  --brand-burgundy: #621217;
+  --brand-blush:    #EAD7C7;
+  --brand-olive:    #302A07;
+  --brand-white:    #FFFFFF;
+}

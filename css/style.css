@@ -29,18 +29,19 @@
   --font-heading: "Perida Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "Perida Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* 3. Colours */
-  --color-bg: #ffffff;          /* home + contact background */
-  --color-bg-alt: #ebeae8;      /* works + about background */
-  --color-header-bg: #ffffff;   /* top bar */
-  --color-text: #111111;
-  --color-muted: #6b6b6b;       /* captions, "(required)" */
-  --color-field-bg: #f8f8f8;    /* contact form boxes */
-  --color-line: #111111;        /* borders, underlines */
+  /* 3. Colours: where each brand colour is used.
+        The brand colours themselves live in css/colors.css. */
+  --color-bg: var(--brand-white);         /* home + contact background */
+  --color-bg-alt: var(--brand-blush);     /* works + about background */
+  --color-text: var(--brand-olive);
+  --color-muted: color-mix(in srgb, var(--brand-olive) 65%, transparent); /* captions, "(required)" */
+  --color-field-bg: color-mix(in srgb, var(--brand-white) 55%, transparent); /* contact form boxes */
+  --color-line: var(--brand-olive);       /* borders, underlines */
+  --color-accent: var(--brand-burgundy);  /* hover on Send */
 
-  /* 4. Background image (optional). Example:
-        --bg-image: url("../assets/images/background.jpg"); */
-  --bg-image: none;
+  /* 4. Paper texture behind every page. It is blended with the page
+        colour, so on blush pages it reads as blush paper. */
+  --bg-image: url("../assets/images/paper-texture.jpg");
 
   /* Layout */
   --header-height: 80px;
@@ -59,11 +60,6 @@ html, body { margin: 0; padding: 0; }
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background-color: var(--color-bg);
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -72,7 +68,20 @@ body {
   flex-direction: column;
 }
 
-body.alt-bg { background-color: var(--color-bg-alt); }
+/* Page background: paper texture over the page colour.
+   The header uses the same so it blends in seamlessly. */
+body,
+.site-header {
+  background-color: var(--color-bg);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+}
+
+body.alt-bg,
+body.alt-bg .site-header { background-color: var(--color-bg-alt); }
 
 img { display: block; max-width: 100%; height: auto; }
 
@@ -92,7 +101,6 @@ main { flex: 1; }
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 var(--gutter);
-  background: var(--color-header-bg);
 }
 
 .site-nav {
@@ -122,7 +130,7 @@ main { flex: 1; }
 }
 
 /* If you use an image logo instead of text */
-.site-logo img { height: 40px; width: auto; margin: 0 auto; }
+.site-logo img { height: 46px; width: auto; margin: 0 auto; }
 
 .site-social {
   justify-self: end;
@@ -265,7 +273,11 @@ main { flex: 1; }
   cursor: pointer;
 }
 
-.contact button:hover { background: var(--color-text); color: var(--color-bg); }
+.contact button:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--brand-white);
+}
 
 .form-note { text-align: center; margin-top: 16px; }
 

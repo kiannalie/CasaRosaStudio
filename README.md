@@ -19,8 +19,10 @@ Look for `✏️` comments in the files: they mark everything you need to change
 ## Adding your brand
 
 1. **Colours**: edit the `--color-…` values at the top of `css/style.css`.
-2. **Fonts**: put your font files in `assets/fonts/`, then uncomment the
-   `@font-face` blocks at the top of `css/style.css` and set the file names.
+2. **Font (Perida Display)**: the site is already set to use it. Put the font
+   files in `assets/fonts/` named `PeridaDisplay-Regular.woff2` (or `.otf`) and
+   `PeridaDisplay-SemiBold.woff2` (or `.otf`), or change the file names at the
+   top of `css/style.css` to match yours.
 3. **Background image**: put it in `assets/images/` and set
    `--bg-image: url("../assets/images/your-file.jpg");`.
 4. **Logo**: in each page's header, replace the text `Casa Rosa Studio` with

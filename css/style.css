@@ -2,26 +2,32 @@
    ✏️ YOUR BRAND — change these to restyle the whole site
    ========================================================= */
 
-/* 1. Your fonts: put the font files in assets/fonts/ and
-      uncomment + rename these blocks.
+/* 1. Font: Perida Display.
+      Put the font files in assets/fonts/ with these names
+      (or change the names below to match your files). */
 @font-face {
-  font-family: "MyHeadingFont";
-  src: url("../assets/fonts/my-heading-font.woff2") format("woff2");
+  font-family: "Perida Display";
+  src: local("Perida Display"),
+       url("../assets/fonts/PeridaDisplay-Regular.woff2") format("woff2"),
+       url("../assets/fonts/PeridaDisplay-Regular.otf") format("opentype");
   font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "MyBodyFont";
-  src: url("../assets/fonts/my-body-font.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Perida Display";
+  src: local("Perida Display SemiBold"),
+       url("../assets/fonts/PeridaDisplay-SemiBold.woff2") format("woff2"),
+       url("../assets/fonts/PeridaDisplay-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
   font-display: swap;
 }
-*/
 
 :root {
-  /* 2. Fonts (put your font names first) */
-  --font-heading: "MyHeadingFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-body: "MyBodyFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* 2. Fonts */
+  --font-heading: "Perida Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Perida Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* 3. Colours */
   --color-bg: #ffffff;          /* home + contact background */

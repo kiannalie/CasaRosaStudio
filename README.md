@@ -28,8 +28,7 @@ Look for `✏️` comments in the files: they mark everything you need to change
    `PeridaDisplay-SemiBold.woff2` (or `.otf`), or change the file names at the
    top of `css/style.css` to match yours.
 3. **Paper texture background**: `assets/images/paper-texture.jpg`. Replace
-   that file to change it. It's blended with the page colour, so the blush
-   pages look like blush paper.
+   that file to change it. It's used on every page and stretches to fill the screen.
 4. **Logo**: the header uses `assets/logo/cr-monogram-olive.png`. To switch
    colour, change `olive` to `burgundy` or `blush` in each page's header.
 5. **Favicon**: `assets/logo/favicon.png` (the burgundy monogram).

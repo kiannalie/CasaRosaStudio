@@ -32,7 +32,7 @@
   /* 3. Colours: where each brand colour is used.
         The brand colours themselves live in css/colors.css. */
   --color-bg: var(--brand-white);         /* home + contact background */
-  --color-bg-alt: var(--brand-blush);     /* works + about background */
+  --color-bg-alt: var(--brand-white);     /* works + about background (white = plain paper) */
   --color-text: var(--brand-olive);
   --color-muted: var(--brand-olive);       /* "(required)" labels */
   --color-field-bg: color-mix(in srgb, var(--brand-white) 55%, transparent); /* contact form boxes */
@@ -40,7 +40,7 @@
   --color-accent: var(--brand-burgundy);  /* hover on Send */
 
   /* 4. Paper texture behind every page. It is blended with the page
-        colour, so on blush pages it reads as blush paper. */
+        colour: on white it shows as-is; on a colour it tints the paper. */
   --bg-image: url("../assets/images/paper-texture.jpg");
 
   /* Layout */

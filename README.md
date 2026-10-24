@@ -1,34 +1,58 @@
-# Casa Rosa Studio 🌸
+# Casa Rosa Studio
 
-A hand-drawn, paper-textured website for the Casa Rosa art studio — a world
-where a home can feel, and hold the elements of nature.
+A simple, gallery-style artist website. Plain HTML and CSS: no build step.
 
-## What's here
+## Pages
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Homepage — 3-D bloom hero, the vision, the 1×3 collection row, the artist |
-| `piece.html` | The product page for a single painting (opens via `piece.html#piece-id`) |
-| `js/pieces-data.js` | **⭐ Edit this one!** All painting titles, stories, prices, sizes, Etsy links, plus your Instagram/email |
-| `css/style.css` | All the styling — paper texture, ink type, hand-drawn buttons |
-| `js/main.js` | The 3-D flower, drifting petals, scroll reveals, page rendering |
-| `assets/paintings/` | Painting images — currently placeholder illustrations |
+| `index.html` | Home (Works): two large boxes, **Older Works** and **Current Collection** |
+| `older-works.html` | Two-column gallery of older works, with a caption under each photo |
+| `current-collection.html` | Two-column gallery of the current collection |
+| `about.html` | Portrait on the left, bio on the right |
+| `contact.html` | Contact form: first name, last name, email, message |
+| `css/style.css` | All styling. **Your fonts, colours and background image are set at the top** |
+| `js/contact.js` | Makes the contact form send |
 
-## How to update it (no coding needed)
+Look for `✏️` comments in the files: they mark everything you need to change.
 
-1. **Your copy & paintings** → open `js/pieces-data.js`. Every title, story,
-   price, and link is there with comments. There are also `✏️ EDIT ME`
-   comments in `index.html` marking the vision & artist-statement text.
-2. **Real painting photos** → drop your photos into `assets/paintings/`
-   (JPG or PNG), then change each piece's `image:` path in
-   `js/pieces-data.js`. Photos look best in portrait, roughly 4:5.
-3. **Etsy links** → in `js/pieces-data.js`, set `etsy:` on each piece to its
-   listing URL, and `etsyShop` at the bottom to your shop URL.
+## Adding your brand
+
+1. **Colours**: edit the `--color-…` values at the top of `css/style.css`.
+2. **Fonts**: put your font files in `assets/fonts/`, then uncomment the
+   `@font-face` blocks at the top of `css/style.css` and set the file names.
+3. **Background image**: put it in `assets/images/` and set
+   `--bg-image: url("../assets/images/your-file.jpg");`.
+4. **Logo**: in each page's header, replace the text `Casa Rosa Studio` with
+   `<img src="assets/images/logo.png" alt="Casa Rosa Studio">`.
+5. **Favicon**: save it as `assets/images/favicon.png`.
+
+## Adding your photos
+
+The grey boxes in `assets/images/` are placeholders. Replace them with your
+photos (JPG or PNG) and update the `src="…"` paths in the HTML:
+
+- Home boxes: `older-works-cover` and `current-collection-cover` in `index.html`.
+  Portrait photos look best (about 3:4).
+- Galleries: each photo is a `<figure>` block in `older-works.html` and
+  `current-collection.html`. Copy a block to add a photo; delete one to remove it.
+  Change `Title, Year` to your caption.
+- About: `about-portrait` in `about.html`.
+
+## Contact form
+
+Out of the box, **Send** opens the visitor's email app addressed to the
+`data-email` address in `contact.html`. Change it to your email.
+
+To receive messages directly instead, create a free form at
+[formspree.io](https://formspree.io), then put its URL in the form's
+`action="…"` in `contact.html`.
+
+## Instagram
+
+Change the `href` on the Instagram icon in each page's header.
 
 ## Running it locally
-
-It's a plain static site — no build step. Either double-click `index.html`,
-or from this folder run:
 
 ```bash
 python3 -m http.server 8000
@@ -37,6 +61,4 @@ python3 -m http.server 8000
 
 ## Hosting
 
-Any static host works: GitHub Pages (Settings → Pages → deploy from branch),
-Netlify, or Vercel. Later, Etsy links can be swapped for real checkout
-(Stripe/Shopify Lite) without changing the design.
+Any static host works: GitHub Pages, Netlify or Vercel.

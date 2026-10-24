@@ -300,6 +300,17 @@ main { flex: 1; }
 }
 
 /* =========================================================
+   Large screens (over 1000px wide): plain soft white, no paper texture
+   ========================================================= */
+@media (min-width: 1001px) {
+  :root {
+    --bg-image: none;
+    --color-bg: var(--soft-white);
+    --color-bg-alt: var(--soft-white);
+  }
+}
+
+/* =========================================================
    Phones
    ========================================================= */
 @media (max-width: 720px) {

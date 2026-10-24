@@ -30,6 +30,8 @@ Look for `✏️` comments in the files: they mark everything you need to change
    the full font, convert it to WOFF2 and replace that file, keeping the name.
 3. **Paper texture background**: `assets/images/paper-texture.jpg`. Replace
    that file to change it. It's used on every page and stretches to fill the screen.
+   On screens wider than 1000px the site uses a plain soft white instead
+   (`--soft-white` in `css/colors.css`).
 4. **Logo**: the header uses `assets/logo/cr-monogram-olive.png`. To switch
    colour, change `olive` to `burgundy` or `blush` in each page's header.
 5. **Favicon**: `assets/logo/favicon.png` (the burgundy monogram).

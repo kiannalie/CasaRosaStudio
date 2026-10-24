@@ -10,11 +10,12 @@ A simple, gallery-style artist website. Plain HTML and CSS: no build step.
 | `older-works.html` | Two-column gallery of older works, with a caption under each photo |
 | `current-collection.html` | Two-column gallery of the current collection |
 | `about.html` | Portrait on the left, bio on the right |
-| `contact.html` | Contact form: first name, last name, email, message |
+| `contact.html` | Contact form: first name, last name, email, message. Sends to thecasarosastudio@gmail.com |
+| `thank-you.html` | The page visitors see after sending a message |
 | `css/colors.css` | **The brand colours** (burgundy, blush, olive). Change a colour here and it updates everywhere |
 | `css/style.css` | All styling. Fonts, which colour goes where, and the background image are set at the top |
 | `assets/logo/` | The CR monogram in olive, burgundy and blush, plus the favicon |
-| `js/contact.js` | Makes the contact form send |
+| `js/contact.js` | Points the form at the thank-you page |
 
 Look for `✏️` comments in the files: they mark everything you need to change.
 
@@ -51,12 +52,24 @@ photos (JPG or PNG) and update the `src="…"` paths in the HTML:
 
 ## Contact form
 
-Out of the box, **Send** opens the visitor's email app addressed to the
-`data-email` address in `contact.html`. Change it to your email.
+Messages from the Contact page are emailed to **thecasarosastudio@gmail.com**
+by [FormSubmit](https://formsubmit.co), a free service with no account needed.
 
-To receive messages directly instead, create a free form at
-[formspree.io](https://formspree.io), then put its URL in the form's
-`action="…"` in `contact.html`.
+- **Spam protection:** visitors tick a Google reCAPTCHA "I'm not a robot" box
+  before the message sends, and a hidden spam-trap field blocks bots.
+- **Reply:** each email's reply-to is the visitor's address, so you can just
+  hit Reply in Gmail.
+
+**One-time activation (required):** after the site is live, send yourself a
+test message from the Contact page. FormSubmit emails
+thecasarosastudio@gmail.com an activation link — click it, and from then on
+every message comes straight through. Check spam if you don't see it.
+
+**Optional, hides your email from spammers:** the activation email also gives
+you a random code. Replace `thecasarosastudio@gmail.com` in the form's
+`action="…"` in `contact.html` with that code.
+
+To change the email address, edit the form's `action="…"` in `contact.html`.
 
 ## Instagram and TikTok
 

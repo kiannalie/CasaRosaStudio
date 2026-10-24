@@ -32,9 +32,17 @@
 
   <main>
     <section class="contact">
-      <!-- ✏️ Form setup: see README.md. Until it is set up, Send opens
-           the visitor's email app addressed to data-email below. -->
-      <form id="contact-form" action="" method="POST" data-email="hello@example.com">
+      <!-- Messages are forwarded to thecasarosastudio@gmail.com by FormSubmit
+           (formsubmit.co), which shows a reCAPTCHA check before sending.
+           See README.md "Contact form". -->
+      <form id="contact-form" action="https://formsubmit.co/thecasarosastudio@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from the Casa Rosa Studio website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <!-- Where visitors land after sending (filled in by js/contact.js) -->
+        <input type="hidden" name="_next" id="form-next" value="">
+        <!-- Spam trap: hidden from people, bots fill it in and get blocked -->
+        <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
         <fieldset>
           <legend>Name</legend>
           <div class="field-row">
@@ -57,7 +65,6 @@
           <textarea id="message" name="message" required></textarea>
         </div>
         <button type="submit">Send</button>
-        <p class="form-note" id="form-note" role="status"></p>
       </form>
     </section>
   </main>

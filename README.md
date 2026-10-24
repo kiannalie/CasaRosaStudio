@@ -43,7 +43,8 @@ The grey boxes in `assets/images/` are placeholders. Replace them with your
 photos (JPG or PNG) and update the `src="…"` paths in the HTML:
 
 - Home boxes: the two `<img>` tags in `index.html` (Older Works uses
-  `older-works/red-bedroom.jpg`; Current Collection still has a placeholder).
+  `older-works/red-bedroom.jpg`; Current Collection plays
+  `assets/video/current-collection.mp4`, a silent loop).
   Portrait photos look best (about 3:4).
 - Galleries: each photo is a `<figure>` block in `older-works.html` and
   `current-collection.html`. Copy a block to add a photo; delete one to remove it.

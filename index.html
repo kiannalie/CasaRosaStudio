@@ -32,13 +32,15 @@
 
   <main>
     <section class="home-tiles">
-      <!-- ✏️ Swap the cover photos in assets/images/ -->
+      <!-- ✏️ Cover photo / video for each box -->
       <a class="tile" href="older-works.html">
         <img src="assets/images/older-works/red-bedroom.jpg" alt="Older works: deep red painting above a bed">
         <span class="tile-label">Older Works</span>
       </a>
       <a class="tile" href="current-collection.html">
-        <img src="assets/images/current-collection-cover.svg" alt="Current collection">
+        <!-- Silent looping video; the poster shows while it loads -->
+        <video src="assets/video/current-collection.mp4" poster="assets/video/current-collection-poster.jpg"
+               autoplay muted loop playsinline preload="auto" aria-label="Current collection: the artist at work on a new piece"></video>
         <span class="tile-label">Current Collection<span class="tile-note">In Progress</span></span>
       </a>
     </section>

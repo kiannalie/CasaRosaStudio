@@ -76,6 +76,12 @@ To change the email address, edit the form's `action="…"` in `contact.html`.
 
 Change the `href` on the Instagram and TikTok icons in each page's header.
 
+## After changing CSS or JS
+
+Each page links its stylesheets as `css/style.css?v=2`. When you change a CSS
+or JS file, bump that number (`?v=3`, …) in every HTML file so visitors'
+browsers load the new version instead of an old saved copy.
+
 ## Running it locally
 
 ```bash

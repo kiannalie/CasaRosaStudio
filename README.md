@@ -8,7 +8,7 @@ A simple, gallery-style artist website. Plain HTML and CSS: no build step.
 | --- | --- |
 | `index.html` | Home (Works): two large boxes, **Older Works** and **Current Collection** |
 | `older-works.html` | Two-column gallery of older works, with a caption under each photo |
-| `current-collection.html` | Two-column gallery of the current collection |
+| `current-collection.html` | Two-column gallery of the current collection. **Hidden for now**: the home page box isn't clickable until it's ready (see the note in `index.html`) |
 | `about.html` | Portrait on the left, bio on the right |
 | `contact.html` | Contact form: first name, last name, email, message. Sends to thecasarosastudio@gmail.com |
 | `thank-you.html` | The page visitors see after sending a message |
@@ -78,7 +78,7 @@ Change the `href` on the Instagram and TikTok icons in each page's header.
 
 ## After changing CSS or JS
 
-Each page links its stylesheets as `css/style.css?v=3`. When you change a CSS
+Each page links its stylesheets as `css/style.css?v=4`. When you change a CSS
 or JS file, bump that number (`?v=3`, …) in every HTML file so visitors'
 browsers load the new version instead of an old saved copy.
 

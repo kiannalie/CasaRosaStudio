@@ -49,7 +49,7 @@ photos (JPG or PNG) and update the `src="…"` paths in the HTML:
 - Galleries: each photo is a `<figure>` block in `older-works.html` and
   `current-collection.html`. Copy a block to add a photo; delete one to remove it.
   Change `Title, Year` to your caption.
-- About: the photo in `about.html` (currently a still from the studio video).
+- About: no photo for now; the note in `about.html` explains how to add one.
 
 ## Contact form
 
@@ -78,7 +78,7 @@ Change the `href` on the Instagram and TikTok icons in each page's header.
 
 ## After changing CSS or JS
 
-Each page links its stylesheets as `css/style.css?v=4`. When you change a CSS
+Each page links its stylesheets as `css/style.css?v=5`. When you change a CSS
 or JS file, bump that number (`?v=3`, …) in every HTML file so visitors'
 browsers load the new version instead of an old saved copy.
 

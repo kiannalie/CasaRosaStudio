@@ -216,6 +216,9 @@ a.tile:hover video { transform: scale(1.02); }
   padding: 143px var(--gutter) 100px;
 }
 
+/* About page without a photo: one centred column of text */
+.about--no-photo { grid-template-columns: minmax(0, 520px); }
+
 .about-photo {
   width: 100%;
   aspect-ratio: 2 / 3;

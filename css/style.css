@@ -2,32 +2,22 @@
    ✏️ YOUR BRAND — change these to restyle the whole site
    ========================================================= */
 
-/* 1. Font: Perida Display.
-      Put the font files in assets/fonts/ with these names
-      (or change the names below to match your files). */
+/* 1. Font: Peridia Display (currently the TRIAL version).
+      When you buy the full font, replace assets/fonts/PeridiaDisplay-Regular.woff2
+      with the full version (same file name) and it updates everywhere.
+      To add a bold/semibold weight later, copy this block with font-weight: 600. */
 @font-face {
-  font-family: "Perida Display";
-  src: local("Perida Display"),
-       url("../assets/fonts/PeridaDisplay-Regular.woff2") format("woff2"),
-       url("../assets/fonts/PeridaDisplay-Regular.otf") format("opentype");
+  font-family: "Peridia Display";
+  src: url("../assets/fonts/PeridiaDisplay-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Perida Display";
-  src: local("Perida Display SemiBold"),
-       url("../assets/fonts/PeridaDisplay-SemiBold.woff2") format("woff2"),
-       url("../assets/fonts/PeridaDisplay-SemiBold.otf") format("opentype");
-  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
   /* 2. Fonts */
-  --font-heading: "Perida Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-body: "Perida Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: "Peridia Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Peridia Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* 3. Colours: where each brand colour is used.
         The brand colours themselves live in css/colors.css. */
@@ -63,6 +53,7 @@ body {
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  font-synthesis: none; /* only a regular weight for now: don't fake bold */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -136,7 +127,10 @@ main { flex: 1; }
   justify-self: end;
   display: flex;
   align-items: center;
+  gap: 16px;
 }
+
+.site-social a { display: flex; }
 
 .site-social svg { width: 15px; height: 15px; }
 
@@ -286,8 +280,10 @@ main { flex: 1; }
    ========================================================= */
 .site-footer {
   display: flex;
-  justify-content: flex-end;
-  padding: 24px max(var(--gutter), 15%);
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 24px var(--gutter);
   font-family: var(--font-heading);
   font-size: 8px;
   font-weight: 600;
@@ -321,5 +317,4 @@ main { flex: 1; }
   .about { gap: 32px; padding-top: 40px; }
   .about-text { font-size: 13px; }
   .contact { padding-top: 60px; }
-  .site-footer { justify-content: center; }
 }

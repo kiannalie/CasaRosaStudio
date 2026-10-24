@@ -23,10 +23,11 @@ Look for `✏️` comments in the files: they mark everything you need to change
 1. **Colours**: the brand colours are in `css/colors.css`. To change *where* a
    colour is used (background, text, lines), edit the `--color-…` values at the
    top of `css/style.css`.
-2. **Font (Perida Display)**: the site is already set to use it. Put the font
-   files in `assets/fonts/` named `PeridaDisplay-Regular.woff2` (or `.otf`) and
-   `PeridaDisplay-SemiBold.woff2` (or `.otf`), or change the file names at the
-   top of `css/style.css` to match yours.
+2. **Font (Peridia Display)**: `assets/fonts/PeridiaDisplay-Regular.woff2`.
+   This is currently the **trial** version, which is missing some characters
+   (© : ; quotes, dashes, /). Trial fonts are usually not licensed for a live
+   site, so check En Travaux's licence before launch. When you buy
+   the full font, convert it to WOFF2 and replace that file, keeping the name.
 3. **Paper texture background**: `assets/images/paper-texture.jpg`. Replace
    that file to change it. It's used on every page and stretches to fill the screen.
 4. **Logo**: the header uses `assets/logo/cr-monogram-olive.png`. To switch
@@ -38,7 +39,8 @@ Look for `✏️` comments in the files: they mark everything you need to change
 The grey boxes in `assets/images/` are placeholders. Replace them with your
 photos (JPG or PNG) and update the `src="…"` paths in the HTML:
 
-- Home boxes: `older-works-cover` and `current-collection-cover` in `index.html`.
+- Home boxes: the two `<img>` tags in `index.html` (Older Works uses
+  `older-works/red-bedroom.jpg`; Current Collection still has a placeholder).
   Portrait photos look best (about 3:4).
 - Galleries: each photo is a `<figure>` block in `older-works.html` and
   `current-collection.html`. Copy a block to add a photo; delete one to remove it.
@@ -54,9 +56,9 @@ To receive messages directly instead, create a free form at
 [formspree.io](https://formspree.io), then put its URL in the form's
 `action="…"` in `contact.html`.
 
-## Instagram
+## Instagram and TikTok
 
-Change the `href` on the Instagram icon in each page's header.
+Change the `href` on the Instagram and TikTok icons in each page's header.
 
 ## Running it locally
 
